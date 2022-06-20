@@ -13,11 +13,20 @@ class _TabViewState extends State<TabView> {
   /// [ currentIndex ] is the index of the current tab which controls the page transitions.
   int currentIndex = 0;
 
-  /// [ body ] is the body of the tab view; ie, [ body ] determines which interface is the current one to show.
+  /// [ body ] is the body of the tab view; ie, [ body ] determines which is the current interface.
   Widget? body;
 
   /// [ title ] is the title of the tab view shown in the [ AppBar ].
   String? title;
+
+  /// [ initState] is called when the widget is created.
+  @override
+  void initState() {
+    super.initState();
+
+    /// [ changeView(0) ] is set by default as 0 inorderto set it at the initial page when the widgets are initialized.
+    changeView(0);
+  }
 
   /// [ onTap ] is the callback for when a tab is tapped used to [ change ] the view .
   void onTap(index) {
@@ -56,7 +65,7 @@ class _TabViewState extends State<TabView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Tab View',
       home: Scaffold(
         appBar: AppBar(
           title: Text(title!),
@@ -66,4 +75,5 @@ class _TabViewState extends State<TabView> {
     );
   }
 }
+
 ```
